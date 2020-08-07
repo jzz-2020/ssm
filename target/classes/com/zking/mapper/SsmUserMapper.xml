@@ -12,6 +12,27 @@
       <arg column="User_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
+
+
+
+
+  <resultMap id="row" type="com.zking.model.SsmUser">
+
+    <id column="User_id" property="userId"/>
+    <result column="User_name" property="userName"/>
+    <result column="User_account" property="userAccount" />
+    <result column="User_pwd" property="userPwd"/>
+    <result column="User_salt" property="userSalt"/>
+    <result column="User_State" property="userState"/>
+    <result column="User_sex" property="userSex"/>
+    <result column="User_age" property="userAge"/>
+    <result column="User_date" property="userDate"/>
+
+  </resultMap>
+
+
+
+
   <sql id="Base_Column_List" >
     User_id, User_name, User_account, User_pwd, User_salt, User_State, User_date
   </sql>
@@ -110,14 +131,13 @@
     </set>
     where User_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zking.model.SsmUser" >
-    update ssm_user
-    set User_name = #{userName,jdbcType=VARCHAR},
-      User_account = #{userAccount,jdbcType=VARCHAR},
-      User_pwd = #{userPwd,jdbcType=VARCHAR},
-      User_salt = #{userSalt,jdbcType=VARCHAR},
-      User_State = #{userState,jdbcType=INTEGER},
-      User_date = #{userDate,jdbcType=TIMESTAMP}
-    where User_id = #{userId,jdbcType=INTEGER}
-  </update>
+  <select id="selectSsmUserAll" resultMap="row" >
+
+    select
+    <include refid="Base_Column_List"/>
+    from ssm_user
+
+  </select>
+
+
 </mapper>

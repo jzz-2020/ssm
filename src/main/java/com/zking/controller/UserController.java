@@ -48,4 +48,42 @@ public class UserController {
             return "redirect:1";
     }
 
+
+    /*zjq  2020-8-08   0.00提交 ↓*/
+
+    /**
+     * 根据id查询单个对象·接口
+     * @param ssmUser
+     * @param model
+     * @return
+     */
+    @RequestMapping("/selectUserByID")
+    @ResponseBody
+    public String selectUserByID(SsmUser ssmUser,Model model){
+
+        System.out.println("Controller：SsmUser-- selectUserByID类   :调用");
+        SsmUser ssmUser2 = ssmUserService.selectByPrimaryKey(ssmUser.getUserId());
+
+        return ssmUser2.toString();
+    };
+
+    /**
+     * 查询所有
+     * @param model
+     * @return
+     */
+    @RequestMapping("/selectUserAll")
+    @ResponseBody
+    public String selectUserAll(Model model){
+
+        System.out.println("Controller：SsmUser-- selectUserAll类   :调用");
+        List<SsmUser> ssmUserList = ssmUserService.selectSsmUserAll();
+
+
+        return ssmUserList.toString();
+    };
+
+
+    /*zjq  2020-8-08   0.00提交 ↑*/
+
 }

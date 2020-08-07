@@ -15,11 +15,6 @@ public class SsmUserServiceImpl implements ISsmUserService {
     private SsmUserMapper ssmUserMapper;
 
     @Override
-    public int deleteByPrimaryKey(Integer userId) {
-        return 0;
-    }
-
-    @Override
     public int insert(SsmUser ssmUser) {
         return ssmUserMapper.insert(ssmUser);
     }
@@ -31,22 +26,31 @@ public class SsmUserServiceImpl implements ISsmUserService {
 
     @Override
     public SsmUser selectByPrimaryKey(Integer userId) {
+
         return ssmUserMapper.selectByPrimaryKey(userId);
     }
 
     @Override
     public int updateByPrimaryKeySelective(SsmUser record) {
-        return 0;
+        return ssmUserMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
-    public int updateByPrimaryKey(SsmUser record) {
-        return 0;
+    public List<SsmUser> selectSsmUserAll() {
+
+        return ssmUserMapper.selectSsmUserAll();
     }
+
 
     @Override
     public List<SsmUser> findUserName(SsmUser ssmUser) {
+
         return ssmUserMapper.findUser(ssmUser);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer userId) {
+        return ssmUserMapper.deleteByPrimaryKey(userId);
     }
 
 
