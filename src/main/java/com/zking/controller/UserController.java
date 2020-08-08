@@ -42,6 +42,7 @@ public class UserController   {
     }
 
 
+    /*222222*/
     //注册方法
     @RequestMapping("register")
         public String AddUser(Model model,SsmUser ssmUser){
