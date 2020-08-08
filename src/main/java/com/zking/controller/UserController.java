@@ -21,20 +21,18 @@ public class UserController   {
     @RequestMapping("login")
     @ResponseBody
     public String findUser(SsmUser ssmUser , Model model){
-       /* SsmUser user = ssmUserService.findUserName(ssmUser);
+        SsmUser user = ssmUserService.findUser(ssmUser);
         System.out.println(user);
         if(null!=user){
             model.addAttribute("user",user);
             System.out.println("登录成功");
             return  "1";
         }
-        System.out.println("登录失败");
-        return  "-1";*/
-        System.out.println("登陸----------------------------------↓");
+        return  "-1";
+       /* System.out.println("登陸----------------------------------↓");
         System.out.println("賬號:"+ssmUser.toString());
-        System.out.println("登陸----------------------------------↑");
-
-        return  "888888888888888";
+        System.out.println("登陸----------------------------------↑");*/
+        //return  "888888888888888";
     }
 
     @ModelAttribute
