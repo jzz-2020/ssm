@@ -3,6 +3,7 @@ package com.zking.service.impl;
 import com.zking.mapper.SsmUserMapper;
 import com.zking.model.SsmUser;
 import com.zking.service.ISsmUserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,8 @@ public class SsmUserServiceImpl implements ISsmUserService {
     }
 
     @Override
-    public List<SsmUser> findUserName(SsmUser ssmUser) {
+    public SsmUser findUser(SsmUser ssmUser) {
+
         return ssmUserMapper.findUser(ssmUser);
     }
 

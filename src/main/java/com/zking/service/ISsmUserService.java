@@ -1,6 +1,7 @@
 package com.zking.service;
 
 import com.zking.model.SsmUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -19,5 +20,6 @@ public interface ISsmUserService {
 
     int updateByPrimaryKey(SsmUser record);
 
-    List<SsmUser> findUserName(SsmUser ssmUser);
+    SsmUser findUser(SsmUser ssmUser );
+
 }

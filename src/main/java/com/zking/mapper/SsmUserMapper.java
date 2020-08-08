@@ -1,6 +1,7 @@
 package com.zking.mapper;
 
 import com.zking.model.SsmUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,5 +20,6 @@ public interface SsmUserMapper {
 
     int updateByPrimaryKey(SsmUser record);
 
-    List<SsmUser> findUser(SsmUser ssmUser);
+    SsmUser findUser(@Param("SsmUser") SsmUser SsmUser);
+
 }
