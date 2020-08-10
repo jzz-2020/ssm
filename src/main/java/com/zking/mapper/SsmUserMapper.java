@@ -46,6 +46,7 @@ public interface SsmUserMapper {
      */
     int updateByPrimaryKeySelective(SsmUser record);
 
+<<<<<<< Updated upstream
 
     /**
      * 查询全部
@@ -53,6 +54,9 @@ public interface SsmUserMapper {
      */
     List<SsmUser> selectSsmUserAll();
 
+=======
+    SsmUser findUser(@Param("SsmUser") SsmUser SsmUser);
+>>>>>>> Stashed changes
 
    /* *//**
      * 修改全部
