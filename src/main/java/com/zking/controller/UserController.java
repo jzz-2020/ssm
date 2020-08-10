@@ -16,7 +16,7 @@ import java.util.List;
 public class UserController   {
     @Autowired
     private ISsmUserService ssmUserService;
-
+/*
     //登录方法
     @RequestMapping("login")
     @ResponseBody
@@ -29,11 +29,11 @@ public class UserController   {
             return  "1";
         }
         return  "-1";
-       /* System.out.println("登陸----------------------------------↓");
+       *//* System.out.println("登陸----------------------------------↓");
         System.out.println("賬號:"+ssmUser.toString());
-        System.out.println("登陸----------------------------------↑");*/
+        System.out.println("登陸----------------------------------↑");*//*
         //return  "888888888888888";
-    }
+    }*/
 
     @ModelAttribute
     public void frist(Model model,SsmUser ssmUser){
