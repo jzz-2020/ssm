@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.mapper.SsmRevenueCashierMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.model.SsmRevenueCashier" >
+    <constructor >
+      <idArg column="class_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="class_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cla_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    class_id, class_name, cla_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ssm_revenue_cashier
+    where class_id = #{classId,jdbcType=INTEGER}
+  </select>
+  <select id="listAllPid" resultType="com.zking.model.SsmRevenueCashier">
+         select <include refid="Base_Column_List"/> from ssm_revenue_cashier
+         <if test="claId!=null">
+           where cla_id=#{claId}
+         </if>
+         <if test="classId!=null">
+           where class_id=#{classId}
+         </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ssm_revenue_cashier
+    where class_id = #{classId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.model.SsmRevenueCashier" >
+    insert into ssm_revenue_cashier (class_id, class_name, cla_id
+      )
+    values (#{classId,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, #{claId,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.zking.model.SsmRevenueCashier" >
+    update ssm_revenue_cashier
+    set class_name = #{className,jdbcType=VARCHAR},
+      cla_id = #{claId,jdbcType=INTEGER}
+    where class_id = #{classId,jdbcType=INTEGER}
+  </update>
+</mapper>
