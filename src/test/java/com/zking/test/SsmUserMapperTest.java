@@ -22,10 +22,6 @@ public class SsmUserMapperTest {
     public void before(){
         ssmUser = new SsmUser();
     }
-/*
-    @Test
-    public void findUserName() {
-        List<SsmUser> userName = ssmUserService.findUserName(ssmUser);
-        System.out.println(userName);
-    }*/
+
+
 }

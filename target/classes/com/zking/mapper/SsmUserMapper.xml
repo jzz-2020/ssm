@@ -3,30 +3,30 @@
 <mapper namespace="com.zking.mapper.SsmUserMapper" >
   <resultMap id="BaseResultMap" type="com.zking.model.SsmUser" >
     <constructor >
-      <idArg column="User_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="User_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="User_id"   jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="User_name"  jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="User_account" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="User_pwd" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="User_salt" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="User_State" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="User_sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="User_age" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="User_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
 
 
-
-
   <resultMap id="row" type="com.zking.model.SsmUser">
 
-    <id column="User_id" property="userId"/>
-    <result column="User_name" property="userName"/>
-    <result column="User_account" property="userAccount" />
-    <result column="User_pwd" property="userPwd"/>
-    <result column="User_salt" property="userSalt"/>
-    <result column="User_State" property="userState"/>
-    <result column="User_sex" property="userSex"/>
-    <result column="User_age" property="userAge"/>
-    <result column="User_date" property="userDate"/>
+      <id column="User_id" property="userId"/>
+      <result column="User_name" property="userName"/>
+      <result column="User_account" property="userAccount" />
+      <result column="User_pwd" property="userPwd"/>
+      <result column="User_salt" property="userSalt"/>
+      <result column="User_State" property="userState"/>
+      <result column="User_sex" property="userSex"/>
+      <result column="User_age" property="userAge"/>
+      <result column="User_date" property="userDate"/>
 
   </resultMap>
 
@@ -34,17 +34,21 @@
 
 
   <sql id="Base_Column_List" >
-    User_id, User_name, User_account, User_pwd, User_salt, User_State, User_date
+    User_id, User_name, User_account, User_pwd, User_salt, User_State, User_sex, User_age, 
+    User_date
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap"   >
     select 
     <include refid="Base_Column_List" />
     from ssm_user
-    where User_id = #{userId,jdbcType=INTEGER}
+    where User_id = #{userId}
   </select>
-  <select id="findUser" resultType="com.zking.model.SsmUser">
-    select <include refid="Base_Column_List"/>
-    from ssm_user where User_name=#{userName} and User_pwd=#{userPwd}
+  <select id="selectSsmUserAll" resultMap="row" >
+
+    select
+    <include refid="Base_Column_List"/>
+    from ssm_user
+
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from ssm_user
@@ -53,10 +57,12 @@
   <insert id="insert" parameterType="com.zking.model.SsmUser" >
     insert into ssm_user (User_id, User_name, User_account, 
       User_pwd, User_salt, User_State, 
-      User_date)
+      User_sex, User_age, User_date
+      )
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userAccount,jdbcType=VARCHAR}, 
       #{userPwd,jdbcType=VARCHAR}, #{userSalt,jdbcType=VARCHAR}, #{userState,jdbcType=INTEGER}, 
-      #{userDate,jdbcType=TIMESTAMP})
+      #{userSex,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER}, #{userDate,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zking.model.SsmUser" >
     insert into ssm_user
@@ -78,6 +84,12 @@
       </if>
       <if test="userState != null" >
         User_State,
+      </if>
+      <if test="userSex != null" >
+        User_sex,
+      </if>
+      <if test="userAge != null" >
+        User_age,
       </if>
       <if test="userDate != null" >
         User_date,
@@ -102,6 +114,12 @@
       <if test="userState != null" >
         #{userState,jdbcType=INTEGER},
       </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null" >
+        #{userAge,jdbcType=INTEGER},
+      </if>
       <if test="userDate != null" >
         #{userDate,jdbcType=TIMESTAMP},
       </if>
@@ -125,19 +143,28 @@
       <if test="userState != null" >
         User_State = #{userState,jdbcType=INTEGER},
       </if>
+      <if test="userSex != null" >
+        User_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null" >
+        User_age = #{userAge,jdbcType=INTEGER},
+      </if>
       <if test="userDate != null" >
         User_date = #{userDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where User_id = #{userId,jdbcType=INTEGER}
   </update>
-  <select id="selectSsmUserAll" resultMap="row" >
-
-    select
-    <include refid="Base_Column_List"/>
-    from ssm_user
-
-  </select>
-
-
+  <!--<update id="updateByPrimaryKey" parameterType="com.zking.model.SsmUser" >
+    update ssm_user
+    set User_name = #{userName,jdbcType=VARCHAR},
+      User_account = #{userAccount,jdbcType=VARCHAR},
+      User_pwd = #{userPwd,jdbcType=VARCHAR},
+      User_salt = #{userSalt,jdbcType=VARCHAR},
+      User_State = #{userState,jdbcType=INTEGER},
+      User_sex = #{userSex,jdbcType=VARCHAR},
+      User_age = #{userAge,jdbcType=INTEGER},
+      User_date = #{userDate,jdbcType=TIMESTAMP}
+    where User_id = #{userId,jdbcType=INTEGER}
+  </update>-->
 </mapper>
