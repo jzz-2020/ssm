@@ -155,7 +155,6 @@
     </set>
     where User_id = #{userId,jdbcType=INTEGER}
   </update>
-<<<<<<< Updated upstream
   <!--<update id="updateByPrimaryKey" parameterType="com.zking.model.SsmUser" >
     update ssm_user
     set User_name = #{userName,jdbcType=VARCHAR},
@@ -168,8 +167,4 @@
       User_date = #{userDate,jdbcType=TIMESTAMP}
     where User_id = #{userId,jdbcType=INTEGER}
   </update>-->
-=======
-
-
->>>>>>> Stashed changes
 </mapper>

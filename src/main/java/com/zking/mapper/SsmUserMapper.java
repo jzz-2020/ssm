@@ -2,6 +2,7 @@ package com.zking.mapper;
 
 import com.zking.model.SsmUser;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,20 +16,8 @@ public interface SsmUserMapper {
      */
     int deleteByPrimaryKey(Integer userId);
 
+    int insert(SsmUser ssmUser);
 
-    /**
-     * 插入所有
-     * @param record
-     * @return
-     */
-    int insert(SsmUser record);
-
-
-    /**
-     * 根据传入的参数进行插入
-     * @param record
-     * @return
-     */
     int insertSelective(SsmUser record);
 
 
@@ -39,14 +28,7 @@ public interface SsmUserMapper {
      */
     SsmUser selectByPrimaryKey(@Param("userId") Integer userId);
 
-    /**
-     * 根据传过来的值进行修改
-     * @param record
-     * @return
-     */
     int updateByPrimaryKeySelective(SsmUser record);
-
-<<<<<<< Updated upstream
 
     /**
      * 查询全部
@@ -54,14 +36,4 @@ public interface SsmUserMapper {
      */
     List<SsmUser> selectSsmUserAll();
 
-=======
-    SsmUser findUser(@Param("SsmUser") SsmUser SsmUser);
->>>>>>> Stashed changes
-
-   /* *//**
-     * 修改全部
-     * @param record
-     * @return
-     *//*
-    int updateByPrimaryKey(SsmUser record);*/
 }
