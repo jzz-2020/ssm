@@ -69,14 +69,17 @@
             <ignoreColumn column="FRED" />
             <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
         </table>-->
-
-
-
-
-
-
-
-
-
+       <!--<table schema="" tableName="ssm_register" domainObjectName="SsmRegister"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <ignoreColumn column="FRED" />
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
+        </table>-->
+<!--        <table schema="" tableName="ssm_cource" domainObjectName="SsmCource"-->
+<!--               enableCountByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" enableUpdateByExample="false">-->
+<!--            <ignoreColumn column="FRED" />-->
+<!--            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>
