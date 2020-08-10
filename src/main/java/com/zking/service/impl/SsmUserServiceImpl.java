@@ -14,44 +14,38 @@ public class SsmUserServiceImpl implements ISsmUserService {
     @Autowired
     private SsmUserMapper ssmUserMapper;
 
+
     @Override
-    public int insert(SsmUser ssmUser) {
-        return ssmUserMapper.insert(ssmUser);
+    public int deleteByPrimaryKey(Integer userId) {
+
+        return ssmUserMapper.deleteByPrimaryKey(userId);
+    }
+
+    @Override
+    public int insert(SsmUser record) {
+        return ssmUserMapper.insert(record);
     }
 
     @Override
     public int insertSelective(SsmUser record) {
-        return 0;
+        return ssmUserMapper.insertSelective(record);
     }
 
     @Override
     public SsmUser selectByPrimaryKey(Integer userId) {
-
+        System.out.println("ssmUser查询方法实现类--调用");
         return ssmUserMapper.selectByPrimaryKey(userId);
     }
 
     @Override
     public int updateByPrimaryKeySelective(SsmUser record) {
+
+
         return ssmUserMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public List<SsmUser> selectSsmUserAll() {
-
         return ssmUserMapper.selectSsmUserAll();
     }
-
-
-    @Override
-    public List<SsmUser> findUserName(SsmUser ssmUser) {
-
-        return ssmUserMapper.findUser(ssmUser);
-    }
-
-    @Override
-    public int deleteByPrimaryKey(Integer userId) {
-        return ssmUserMapper.deleteByPrimaryKey(userId);
-    }
-
-
 }

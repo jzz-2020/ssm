@@ -69,5 +69,14 @@
             <ignoreColumn column="FRED" />
             <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
         </table>-->
+
+
+
+
+
+
+
+
+
     </context>
 </generatorConfiguration>

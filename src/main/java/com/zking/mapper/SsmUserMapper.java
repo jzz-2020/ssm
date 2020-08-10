@@ -1,13 +1,11 @@
 package com.zking.mapper;
 
 import com.zking.model.SsmUser;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Repository
 public interface SsmUserMapper {
-
 
 
     /**
@@ -39,7 +37,7 @@ public interface SsmUserMapper {
      * @param userId
      * @return
      */
-    SsmUser selectByPrimaryKey(Integer userId);
+    SsmUser selectByPrimaryKey(@Param("userId") Integer userId);
 
     /**
      * 根据传过来的值进行修改
@@ -54,21 +52,12 @@ public interface SsmUserMapper {
      * @return
      */
     List<SsmUser> selectSsmUserAll();
-//
-//    int deleteByPrimaryKey(Integer userId);
-//
-//    int insert(SsmUser ssmUser);
-//
-//    int insertSelective(SsmUser record);
-
-//    SsmUser selectByPrimaryKey(Integer userId);
-//
-//    int updateByPrimaryKeySelective(SsmUser record);
-//
-//    int updateByPrimaryKey(SsmUser record);
-
-    List<SsmUser> findUser(SsmUser ssmUser);
 
 
-
+   /* *//**
+     * 修改全部
+     * @param record
+     * @return
+     *//*
+    int updateByPrimaryKey(SsmUser record);*/
 }

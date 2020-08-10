@@ -9,12 +9,6 @@ import java.util.List;
 public interface ISsmUserService {
 
 
-    List<SsmUser> findUserName(SsmUser ssmUser);
-
-
-
-
-
     /**
      * 根据id删除
      * @param userId
@@ -44,7 +38,8 @@ public interface ISsmUserService {
      * @param userId
      * @return
      */
-    @Transactional  //事务注解，一般用于方法的话是用在查询方法防止死锁,子类会自动继承这个接口
+    @Transactional
+    //事务注解，一般用于方法的话是用在查询方法防止死锁,子类会自动继承这个接口
     SsmUser selectByPrimaryKey(Integer userId);
 
     /**
@@ -59,4 +54,6 @@ public interface ISsmUserService {
      * @return
      */
     List<SsmUser> selectSsmUserAll();
+
+
 }
