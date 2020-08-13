@@ -167,4 +167,7 @@
       User_date = #{userDate,jdbcType=TIMESTAMP}
     where User_id = #{userId,jdbcType=INTEGER}
   </update>-->
+  <select id="findUser" resultMap="row">
+    select  User_name,User_Pwd from ssm_user where User_id=#{userId}
+  </select>
 </mapper>

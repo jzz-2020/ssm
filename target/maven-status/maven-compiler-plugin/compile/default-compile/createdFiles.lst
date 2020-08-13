@@ -6,6 +6,7 @@ com\zking\service\ISsmUserService.class
 com\zking\controller\SsmUserController.class
 com\zking\shiro\PasswordHelper.class
 com\zking\util\EncodingFiter.class
+com\zking\ssm\redis\CacheKeyGenerator.class
 com\zking\util\PageAspect.class
 com\zking\service\impl\SsmUserServiceImpl.class
 com\zking\model\SsmUser.class

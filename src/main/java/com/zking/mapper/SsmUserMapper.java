@@ -3,9 +3,10 @@ package com.zking.mapper;
 import com.zking.model.SsmUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Repository
 public interface SsmUserMapper {
 
 
@@ -16,6 +17,11 @@ public interface SsmUserMapper {
      */
     int deleteByPrimaryKey(Integer userId);
 
+    /**
+     * 注册
+     * @param ssmUser
+     * @return
+     */
     int insert(SsmUser ssmUser);
 
     int insertSelective(SsmUser record);
@@ -35,5 +41,14 @@ public interface SsmUserMapper {
      * @return
      */
     List<SsmUser> selectSsmUserAll();
+
+
+    /**
+     * 用户登录
+     * @param userId
+     * @return
+     */
+    SsmUser findUser(Integer userId);
+
 
 }

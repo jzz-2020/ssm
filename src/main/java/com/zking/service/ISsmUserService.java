@@ -1,6 +1,7 @@
 package com.zking.service;
 
 import com.zking.model.SsmUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -19,10 +20,10 @@ public interface ISsmUserService {
 
     /**
      * 插入所有
-     * @param record
+     * @param ssmUser
      * @return
      */
-    int insert(SsmUser record);
+    int insert(SsmUser ssmUser);
 
 
     /**
@@ -54,6 +55,13 @@ public interface ISsmUserService {
      * @return
      */
     List<SsmUser> selectSsmUserAll();
+
+    /**
+     * 用户登录
+     * @param userId
+     * @return
+     */
+    SsmUser findUser(Integer userId);;
 
 
 }

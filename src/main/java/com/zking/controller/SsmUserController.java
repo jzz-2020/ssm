@@ -97,8 +97,30 @@ public class SsmUserController {
 
 
 
+    //登录方法
+    @RequestMapping("login")
+    public String findUser(Integer userId , Model model){
+        SsmUser user = SsmUserService.findUser(userId);
+        System.out.println(user);
+        if(null!=user) {
+            model.addAttribute("user", user);
+            System.out.println("登录成功");
+            System.out.println(user.toString());
+            return "index";
+        }
+        return  "erorr";
+    }
 
 
+    @RequestMapping("register")
+    public String AddUser(Model model,SsmUser ssmUser){
+        int insert = SsmUserService.insert(ssmUser);
+        if(insert>0){
+            System.out.println("注册成功");
+            return "redirect:1";
+        }
+        return "-1";
+    }
 
 
 }

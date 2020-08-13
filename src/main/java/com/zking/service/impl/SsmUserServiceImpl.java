@@ -22,8 +22,8 @@ public class SsmUserServiceImpl implements ISsmUserService {
     }
 
     @Override
-    public int insert(SsmUser record) {
-        return ssmUserMapper.insert(record);
+    public int insert(SsmUser ssmUser) {
+        return ssmUserMapper.insert(ssmUser);
     }
 
     @Override
@@ -48,4 +48,11 @@ public class SsmUserServiceImpl implements ISsmUserService {
     public List<SsmUser> selectSsmUserAll() {
         return ssmUserMapper.selectSsmUserAll();
     }
+
+    @Override
+    public SsmUser findUser(Integer userId) {
+        return ssmUserMapper.findUser(userId);
+    }
+
+
 }

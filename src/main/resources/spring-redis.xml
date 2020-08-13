@@ -13,7 +13,7 @@
     <!-- 所以下面的配置会注释掉了 -->
     <!-- 1. 引入properties配置文件 -->
     <context:property-placeholder ignore-unresolvable="true" location="classpath:redis.properties,classpath:jdbc.properties" />
-    <!--<bean id="propertyConfigurer"
+   <!-- <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
         <property name="ignoreResourceNotFound" value="true" />
@@ -79,9 +79,9 @@
     </bean>
 
     <!--配置缓存管理器-->
-    <bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+    <!--<bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
         <constructor-arg name="redisOperations" ref="redisTemplate" />
-        <!--redis缓存数据过期时间单位秒-->
+        &lt;!&ndash;redis缓存数据过期时间单位秒&ndash;&gt;
         <property name="defaultExpiration" value="${redis.expiration}" />
         <property name="usePrefix" value="true"/>
         <property name="cachePrefix">
@@ -89,12 +89,12 @@
                 <constructor-arg index="0" value="-cache-"/>
             </bean>
         </property>
-    </bean>
+    </bean>-->
 
     <!--配置自定义key生成器-->
-    <bean id="cacheKeyGenerator" class="com.zking.util.CacheKeyGenerator"></bean>
+    <!--<bean id="cacheKeyGenerator" class="com.zking.util.CacheKeyGenerator"></bean>-->
 
     <!--配置缓存注解-->
-    <cache:annotation-driven cache-manager="redisCacheManager" key-generator="cacheKeyGenerator"/>
+    <!--<cache:annotation-driven cache-manager="redisCacheManager" key-generator="cacheKeyGenerator"/>-->
 </beans>
 
